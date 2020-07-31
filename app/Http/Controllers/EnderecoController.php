@@ -48,16 +48,26 @@ class EnderecoController extends Controller
     public function salvar(SalvarRequest $request)
     {
         // dd($request->all());
-        $endereco = Endereco::create([
-            'cep' => $request->input('cep'),
-            'logradouro' => $request->input('logradouro'),
-            'numero' => $request->input('numero'),
-            'bairro' => $request->input('bairro'),
-            'cidade' => $request->input('cidade'),
-            'estado' => $request->input('estado')
-        ]);
+
+        $endereco = Endereco::where('cep', $request->input('cep'))->first();
+
+        if(!$endereco){
+
+            $endereco = Endereco::create([
+                'cep' => $request->input('cep'),
+                'logradouro' => $request->input('logradouro'),
+                'numero' => $request->input('numero'),
+                'bairro' => $request->input('bairro'),
+                'cidade' => $request->input('cidade'),
+                'estado' => $request->input('estado')
+            ]);
+
+            //with"...." cria sessao com sucesso.
+            return redirect('/')->withSucesso('Endereço salvo com sucesso');
+
+        }
 
         // dd($endereco->id);
-        return redirect('/');
+        return redirect('/')->withErro('Endereço já cadastrado!');
     }
 }
