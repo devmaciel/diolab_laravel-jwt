@@ -20,4 +20,8 @@ Route::get('/', 'EnderecoController@index')
 
 //action: BUSCAR
 Route::get('/buscar', 'EnderecoController@buscar')
-->name('buscar');
+    ->name('buscar');
+
+//action: Salvar na DB
+Route::post('/salvar', 'EnderecoController@salvar')
+    ->name('salvar');

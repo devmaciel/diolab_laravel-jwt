@@ -12,9 +12,21 @@
   </head>
   <body>
 
+    {{-- ERROS de Validação --}}
+    @if ($erros->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <div class="container">
         <h1>Adicionar CEP</h1>
-        <form action="{{ route('buscar') }}" method="GET">
+        <form action="{{ route('buscar') }}" method="POST">
+            @csrf
 
             <div class="form-group">
               <label>CEP</label>
