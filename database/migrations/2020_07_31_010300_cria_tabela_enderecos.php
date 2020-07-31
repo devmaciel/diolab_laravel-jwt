@@ -26,6 +26,6 @@ class CriaTabelaEnderecos extends Migration
     //======================================
     public function down()
     {
-        Schema::dropIfExists('enderecos');//======================================
+        Schema::dropIfExists('enderecos');
     }
 }

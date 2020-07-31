@@ -25,7 +25,7 @@
 
     <div class="container">
         <h1>Adicionar CEP</h1>
-        <form action="{{ route('buscar') }}" method="POST">
+        <form action="{{ route('salvar') }}" method="POST">
             @csrf
 
             <div class="form-group">

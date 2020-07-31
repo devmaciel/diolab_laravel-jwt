@@ -18,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'EnderecoController@index')
     ->name('home');
 
+//Adicionar
+Route::get('/adicionar', 'EnderecoController@adicionar')
+    ->name('adicionar');
+
 //action: BUSCAR
 Route::get('/buscar', 'EnderecoController@buscar')
     ->name('buscar');
